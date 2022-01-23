@@ -40,35 +40,25 @@ int push()
  }
  printf("enter the data to be inserted");
  scanf("%d",&new->data);
- new->link=NULL;
  if(top==NULL)
  {
+        new->link=NULL;
         top=new;
         return 0;
     }
-   ptr=top;
-   while(ptr->link!=NULL)
-   {
-       ptr=ptr->link;
-    }
-        ptr->link=new;
+   new->link=top;
+   top=new;
         return 0;
 }
 int pop()
-{   struct node *ptr2;
-    if(top=NULL)
-    {
-        printf("the linkedlist is empty");
-        return 0;
-    }
-    ptr=top;
-    while(ptr->link!=NULL)
-    {   ptr2=ptr;
-        ptr=ptr->link;
-        
-    }
-        free(ptr);
-        ptr2->link=NULL;
+{  if(top=NULL)
+   {
+       printf("underflow");
+       return 0;
+   }
+   ptr=top;
+   top=top->link;
+   free(ptr);
         return 0;
 }
 int display()
